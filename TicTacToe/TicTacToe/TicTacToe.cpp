@@ -1,7 +1,20 @@
 #include <iostream>
+#include "Game.h"
+#include "Board.h"
+#include "Player.h"
+
 
 int main()
 {
-    std::cout << "Hello! This is an inital commit file.\n";
+    Game game;
+    game.assignPlayers();
+    while (!game.quit)
+    {
+        game.render();
+        game.input();
+        game.check();
+    }
+    game.close();
+    
     return 0;
 }
