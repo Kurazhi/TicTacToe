@@ -8,7 +8,7 @@ public:
 	void setType(char c) { mPlayerType = c; }
 	bool isTurn() { return bTurn; }
 	void setTurn(bool b) { bTurn = b; }
-	void incrementScore() { mScore++; }
+	void incrementScore() { ++mScore; }
 
 private:
 	char mPlayerType;

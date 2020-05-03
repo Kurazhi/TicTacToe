@@ -1,20 +1,16 @@
 #include <iostream>
-#include "Game.h"
-#include "Board.h"
-#include "Player.h"
+#include "WindowsManager.h"
 
 
-int main()
+int main(int argc, char *args[])
 {
-    Game game;
-    game.assignPlayers();
-    while (!game.quit)
+    WindowsManager window;
+    if (!window.init())
     {
-        game.render();
-        game.input();
-        game.check();
+        std::cerr << "Unable to load Game" << std::endl;
+        return 1;
     }
-    game.close();
-    
+    window.running();
+    window.close();
     return 0;
 }

@@ -2,21 +2,20 @@
 #include <iostream>
 #include "Player.h"
 #include "Board.h"
+#include <SDl.h>
 class Game
 {
 public:
-	Game() : mBoard{}, quit{ false }, players{'X', 'O'} {}
+	Game() : quit{ false }, players{'X', 'O'} {}
 	void render();
 	void assignPlayers();
-	void input();
 	void check();
+	void handleUpdate(SDL_Event* event);
 	void close();
-	bool isWin(char c);
-	void rematch();
 	bool quit;
 private:
 	Board mBoard;
-	
+	void rematch();
 	Player players[2];
 };
 
